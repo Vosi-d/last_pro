@@ -1,3 +1,4 @@
+from datetime import datetime
 from sqlalchemy import Integer, String, DateTime, Column, ForeignKey
 from sqlalchemy.orm import relationship
 from database import Base
@@ -34,6 +35,17 @@ class MarkComment(Base):
     publish_date = Column(DateTime)
 
     mark_fk = relationship(StudentMarks, lazy='subquery')
-
+class RegisterModel():
+    __tablename__ ='registration'
+    name: str
+    surname: str
+    email: str
+    password: str
+    reg_date: datetime = datetime.now()
+#
+# class LoginModel(Base):
+#     __tablename__='login'
+#     email: str
+#     password: str
 
 
